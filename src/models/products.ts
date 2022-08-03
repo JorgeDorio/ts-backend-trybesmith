@@ -14,8 +14,8 @@ export const listLastProduct = async (): Promise<IProduct[]> => {
   return result as IProduct[];
 };
 
-// export const listAllProducts = async (): Promise<IProduct[]> => {
-//   const query = 'SELECT * FROM Trybesmith.Products';
-//   const [products] = await connection.execute(query);
-//   return products as IProduct[];
-// }
+export const listAllProducts = async (): Promise<IProduct[]> => {
+  const query = 'SELECT * FROM Trybesmith.Products';
+  const [products] = await connection.execute(query);
+  return products as IProduct[];
+};

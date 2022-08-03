@@ -1,5 +1,5 @@
-import * as products from '../models/product';
-import { CREATED } from '../HTTP_STATUS';
+import * as products from '../models/products';
+import { CREATED, OK } from '../HTTP_STATUS';
 
 export const createProduct = async (name: string, amount: string) => {
   await products.createProduct(name, amount, 3);
@@ -7,6 +7,7 @@ export const createProduct = async (name: string, amount: string) => {
   return { status: CREATED, data };
 };
 
-export const listAllProducts = () => {
-  console.log('Só pra manter o export :)');
+export const listAllProducts = async () => {
+  const data = await products.listAllProducts();
+  return { status: OK, data };
 };
