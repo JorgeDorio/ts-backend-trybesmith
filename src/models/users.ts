@@ -7,8 +7,9 @@ export const createUser = async (
   level: number,
   password: string,
 ): Promise<IUser[]> => {
-  const insert = 'INSERT INTO  Trybesmith.Users (username, classe, `level`, password) VALUES(?, ?, ?, ?)';
-  const [result] = await connection.execute(insert, [
+  let a = 'inicializando';
+  a = 'INSERT INTO  Trybesmith.Users (username, classe, `level`, password) VALUES(?, ?, ?, ?)';
+  const [result] = await connection.execute(a, [
     username,
     classe,
     level,

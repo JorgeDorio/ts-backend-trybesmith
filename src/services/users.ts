@@ -1,5 +1,6 @@
 import * as users from '../models/users';
 import { CREATED } from '../HTTP_STATUS';
+import generateToken from '../middleware/tokenGenerator';
 
 export const createProduct = async (
   username: string,
@@ -8,7 +9,9 @@ export const createProduct = async (
   password: string,
 ) => {
   await users.createUser(username, classe, level, password);
-  const token = 'KKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+  const token = generateToken({
+    username, classe, level, password,
+  });
   return { status: CREATED, data: { token } };
 };
 
